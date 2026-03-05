@@ -1,0 +1,227 @@
+// Color Variables - LIGHT THEME (Teal palette)
+$primary: #00695C;
+$info: #009688;
+$success: #00f2c3;
+$danger: #fd5d93;
+$warning: #ff8d72;
+$white: #ffffff;
+$white-bg: #ffffff;
+$black: #27293d;
+// Swapped dark colors for light/white
+$dark-blue: #ffffff;
+$light-blue: #102A27;
+$sidebar-width: 260px;
+
+// Mixins
+@mixin gradient-primary {
+  background: $primary;
+  background-image: linear-gradient(to bottom left, #004D40, #00695C, #00796B);
+  background-size: 210% 210%;
+  background-position: 100% 0;
+  transition: all 0.15s ease;
+}
+
+// Global Resets for Admin Layout
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: $light-blue; // Dark text
+  background-color: $white; // Pure white background
+  text-align: left;
+}
+
+// 1440p Frame Constraints
+.app-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: $white; // Pure white frame
+}
+
+.wrapper {
+  display: flex;
+  position: relative;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  max-width: 1440px; // Constraint width
+  background-color: $white; // Pure white main wrapper
+  box-shadow: 0 0 50px rgba(0,0,0,0.1); // Soft shadow
+}
+
+// Sidebar Styles
+.sidebar {
+  position: relative; 
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 100vh;
+  width: $sidebar-width;
+  flex-shrink: 0; 
+  z-index: 9999;
+  background: linear-gradient(0deg, #004D40 0%, #00695C 50%, #00796B 100%);
+  background-size: 150% 150%;
+  border-radius: 0;
+  box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56),
+    0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  
+  .sidebar-wrapper {
+    position: relative;
+    height: 100%; 
+    max-height: 100%; 
+    overflow: hidden; 
+    width: 260px;
+    z-index: 4;
+    padding-bottom: 0; 
+    display: flex;
+    flex-direction: column; 
+    
+    .logo {
+      padding: 10px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      flex-shrink: 0;
+      
+      .simple-text {
+        text-transform: uppercase;
+        padding: 0.5rem 0;
+        display: block;
+        white-space: nowrap;
+        font-size: 1rem;
+        color: $white;
+        text-decoration: none;
+        font-weight: 400;
+        line-height: 30px;
+        overflow: hidden;
+      }
+    }
+
+    .nav {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      padding-left: 0; 
+      flex-grow: 1; 
+
+      li {
+        width: 100%; 
+        
+        &.active > a {
+          background: transparent; // REMOVED WHITE BACKGROUND
+          color: $white; // Keep white text
+          // box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1); // Removed shadow
+          font-weight: 700; // Make bolder to indicate active
+          
+          p {
+            color: $white;
+          }
+          
+          i {
+            color: $white;
+          }
+          
+          // Optional: Add a left border indicator or similar minimal style
+          border-left: 4px solid $white; 
+          padding-left: 4px; // Adjust padding to compensate
+        }
+
+        a {
+          margin: 10px 0px 0; // Removed side margins to span full width or just clean up
+          border-radius: 0; // Remove rounded corners
+          color: $white;
+          display: flex; 
+          align-items: center;
+          text-decoration: none;
+          position: relative;
+          text-transform: uppercase;
+          cursor: pointer;
+          font-size: 0.7142em;
+          padding: 15px 25px; // Increase padding for better click area
+          line-height: 1.625rem;
+          transition: all 0.3s ease;
+          
+          &:hover {
+             background: rgba(255,255,255,0.1);
+          }
+
+          p {
+            margin: 0;
+            line-height: 30px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-left: 10px; 
+            color: $white;
+          }
+
+          i {
+            font-size: 24px;
+            margin-right: 12px;
+            line-height: 30px;
+            width: 30px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+          }
+        }
+      }
+    }
+  }
+}
+
+.main-panel {
+  position: relative;
+  float: right;
+  width: calc(100% - #{$sidebar-width});
+  min-height: 100vh;
+  background-color: #ffffff;
+  transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
+  padding-top: 0px; // Removed padding-top as header is now inside
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table thead tr {
+  background-color: #00695C;
+  color: #ffffff;
+}
+
+table thead th {
+  color: #ffffff;
+}
+
+table tbody tr {
+  background-color: #E0F2F1;
+}
+
+table tbody tr:hover {
+  background-color: #ffffff;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="email"],
+select,
+textarea {
+  background-color: #E0F2F1;
+  border: 1px solid #B2DFDB;
+}
+
+// Adjust for smaller screens 
+@media (max-width: 991px) {
+  .sidebar {
+     display: none; 
+     position: absolute;
+     left: 0;
+     top: 0;
+  }
+  .main-panel {
+     width: 100%;
+  }
+}
