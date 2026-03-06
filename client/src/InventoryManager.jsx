@@ -1561,7 +1561,7 @@ function InventoryManager() {
                     <FaSync />
                   </button>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'white', padding: '6px 12px', border: `1px solid ${theme.colors.border}`, borderRadius: '8px' }}>
-                    <FaCalendarAlt style={{ color: theme.colors.textMuted }} NB/>
+                    <FaCalendarAlt style={{ color: theme.colors.textMuted }} />
                     <input 
                       type="date" 
                       value={dateStart} 
