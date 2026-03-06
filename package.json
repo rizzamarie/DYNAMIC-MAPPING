@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "start": "node server/index.js",
+    "build": "cd client && npm install && npm run build"
+  },
   "dependencies": {
     "@coreui/chartjs": "^4.2.0",
     "@coreui/coreui": "^5.5.0",
